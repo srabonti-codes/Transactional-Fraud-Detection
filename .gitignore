@@ -1,25 +1,45 @@
-# Python cache and compiled files
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyo
+*.pyd
+*.pdb
 
-# Virtual environment directories
+# Virtual environments
 .venv/
 venv/
 env/
 ENV/
 
-# Jupyter checkpoints
+# Environment variables
+.env
+.env.*
+
+# Jupyter
 .ipynb_checkpoints/
 
-# Environment files
-.env
-*.env
+# VS Code
+.vscode/
 
-# Logs and temporary files
+# Pytest
+.pytest_cache/
+
+# Mypy
+.mypy_cache/
+
+# Coverage
+.coverage
+.coverage.*
+htmlcov/
+.coverage.xml
+
+# Logs
 *.log
 
 # OS files
 .DS_Store
 Thumbs.db
-data/transactions.csv
+
+# Dataset files too large for GitHub
+# data/transactions.csv
