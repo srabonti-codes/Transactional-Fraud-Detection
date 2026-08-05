@@ -2,6 +2,7 @@ streamlit
 numpy
 pandas
 scikit-learn
+tensorflow
 torch
 pytorch-tabnet
 matplotlib
