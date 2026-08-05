@@ -1,0 +1,9 @@
+{
+  "processed_row_count": 49278,
+  "processed_class_distribution": {
+    "0": 41065,
+    "1": 8213
+  },
+  "fraud_positive_rate": 0.16666666666666666,
+  "feature_count": 11
+}

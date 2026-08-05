@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: transactional-fraud-detection
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: 1
+      - key: SITE_URL
+        value: https://transactional-fraud-detector.onrender.com
+      - key: GOOGLE_ANALYTICS_ID
+        value: ""
+      - key: GOOGLE_TAG_MANAGER_ID
+        value: ""
+      - key: KEEPALIVE_ENABLED
+        value: true
+      - key: KEEPALIVE_URL
+        value: https://transactional-fraud-detector.onrender.com/health
+      - key: KEEPALIVE_INTERVAL_SECONDS
+        value: 300

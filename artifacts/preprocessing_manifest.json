@@ -1,0 +1,45 @@
+{
+  "type_mapping": {
+    "TRANSFER": 0,
+    "CASH_OUT": 1
+  },
+  "high_amount_threshold": 2650035.52159999,
+  "created_at_utc": "2026-08-01T17:49:52.639259+00:00",
+  "source_data": "data\\transactions.csv",
+  "raw_row_count": 6362620,
+  "raw_class_distribution": {
+    "0": 6354407,
+    "1": 8213
+  },
+  "feature_columns": [
+    "log_amount",
+    "error_orig",
+    "error_dest",
+    "hour",
+    "is_night",
+    "is_high_amount",
+    "type_encoded",
+    "oldbalanceOrg",
+    "newbalanceOrig",
+    "oldbalanceDest",
+    "newbalanceDest"
+  ],
+  "target_column": "isFraud",
+  "supported_transaction_types": [
+    "TRANSFER",
+    "CASH_OUT"
+  ],
+  "notes": "Raw data remains in data/. Downsampled supported transactions are saved for lightweight training.",
+  "filtered_supported_row_count": 2770409,
+  "filtered_supported_class_distribution": {
+    "0": 2762196,
+    "1": 8213
+  },
+  "downsampled_data": "data\\downsampled_transactions.csv",
+  "downsampled_row_count": 49278,
+  "downsampled_class_distribution": {
+    "0": 41065,
+    "1": 8213
+  },
+  "non_fraud_to_fraud_ratio": 5
+}
