@@ -1,9 +1,14 @@
 # Transactional Fraud Detection
 
-A production-grade Streamlit application for fraud detection in financial transactions.
+A complete end-to-end fraud detection project with an interactive Streamlit dashboard, trained model artifacts, and production-ready inference.
 
 ## Overview
-This repository provides an end-to-end solution for detecting transaction fraud using machine learning. It includes preprocessing assets, serialized model artifacts, and a web interface for real-time inference.
+This repository delivers a ready-to-run fraud scoring system for transaction data. It includes dataset assets, preprocessing pipelines, model artifacts, evaluation summaries, and a Streamlit app for live inference.
+
+## Dataset
+The dataset is based on the PaySim dataset from Kaggle. It was adapted for this project with a downsampled version included for efficient training and evaluation.
+
+A live preview is available at https://transactional-fraud-detector.onrender.com.
 
 ## Key capabilities
 - Real-time fraud risk scoring via a Streamlit user interface
@@ -53,9 +58,8 @@ The MLP model is the top performer in this comparison and should be noted as the
 - `notebooks/` — model training, preprocessing, and evaluation notebooks
 - `results/` — evaluation outputs and prediction results
 - `images/` — generated analysis plots and visualization outputs
-- `render.yaml` — Render deployment configuration
+- `render.yaml` — optional deployment configuration
 - `requirements.txt` — Python package dependencies
-- `.gitignore` — ignore rules for local and generated files
 - `README.md` — repository documentation
 - `LICENSE` — license terms
 - [`demo/`](demo/) — recorded deployment video demonstrating project execution
@@ -70,16 +74,12 @@ The MLP model is the top performer in this comparison and should be noted as the
    ```bash
    cd Transactional-Fraud-Detection
    ```
-3. If the local repository is not yet configured with the remote origin, add it:
-   ```bash
-   git remote add origin https://github.com/srabonti-codes/Transactional-Fraud-Detection.git
-   ```
-4. Create and activate a Python virtual environment.
-5. Install dependencies:
+3. Create and activate a Python virtual environment.
+4. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-6. Run the application:
+5. Run the application:
    ```bash
    streamlit run app.py
    ```
@@ -94,31 +94,6 @@ SITE_URL=https://your-app-url.com
 
 - `PORT` defines the port used by the Streamlit server.
 - `SITE_URL` is used to generate SEO routes and for internal keepalive requests.
-
-## Deployment on Render
-The project includes a `render.yaml` configuration for deployment on Render.
-
-- Build command:
-  ```bash
-  pip install -r requirements.txt
-  ```
-- Start command:
-  ```bash
-  streamlit run app.py --server.port $PORT --server.address 0.0.0.0
-  ```
-
-Set `SITE_URL` to the public Render URL for your application, for example:
-
-```env
-SITE_URL=https://transactional-fraud-detector.onrender.com
-```
-
-### Recommended health check
-Use the public health endpoint for service checks:
-
-- `https://transactional-fraud-detector.onrender.com/health`
-
-This endpoint is also used internally by the application to maintain availability.
 
 ## SEO and observability
 The application exposes:

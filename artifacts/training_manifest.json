@@ -1,5 +1,5 @@
 {
-  "created_at_utc": "2026-08-01T18:02:36.554077+00:00",
+  "created_at_utc": "2026-08-05T11:14:30.612715+00:00",
   "source_data": "data\\downsampled_transactions.csv",
   "candidate_models_dir": "artifacts\\model_candidates",
   "models_dir": "models",
