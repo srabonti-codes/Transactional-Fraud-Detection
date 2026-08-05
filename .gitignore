@@ -40,6 +40,3 @@ htmlcov/
 # OS files
 .DS_Store
 Thumbs.db
-
-# Dataset files too large for GitHub
-# data/transactions.csv

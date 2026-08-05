@@ -18,7 +18,7 @@ from pytorch_tabnet.tab_model import TabNetClassifier
 
 # STREAMLIT CONFIGURATION
 st.set_page_config(
-    page_title="AI Fraud Detection Demo | Transaction Risk Analysis",
+    page_title="Transactional Fraud Detector | Deep Learning-Based Fraud Detection",
     page_icon=":material/shield:",
     layout="centered",
     initial_sidebar_state="collapsed",
@@ -63,11 +63,22 @@ def register_seo_routes():
         return False
 
     def robots_handler(*_args, **_kwargs):
-        site_url = os.getenv("SITE_URL", "https://transactional-fraud-detection.onrender.com").rstrip("/")
-        return f"User-agent: *\nAllow: /\nSitemap: {site_url}/sitemap.xml\n"
+        site_url = os.getenv(
+            "SITE_URL",
+            "https://transactional-fraud-detector.onrender.com"
+        ).rstrip("/")
+        return (
+            f"User-agent: *\n"
+            f"Allow: /\n"
+            f"Sitemap: {site_url}/sitemap.xml\n"
+        )
 
     def sitemap_handler(*_args, **_kwargs):
-        site_url = os.getenv("SITE_URL", "https://transactional-fraud-detection.onrender.com").rstrip("/")
+        site_url = os.getenv(
+            "SITE_URL",
+            "https://transactional-fraud-detector.onrender.com"
+        ).rstrip("/")
+
         return (
             "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
             "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n"
@@ -588,15 +599,24 @@ if predict_button:
 
             st.markdown(
                 f"""
-<div class="result-card fraud">
+<div class="result-card"
+     style="
+        border-left:4px solid #f87171;
+        background:rgba(239,68,68,0.06);
+        border-radius:18px;
+        padding:22px;
+        margin-top:15px;
+     ">
 
-<h3>Fraudulent Transaction Detected</h3>
+<h3 style="color:#ef4444; margin-top:0;">
+    Fraudulent Transaction Detected
+</h3>
 
-<b>Status:</b> High Risk<br>
+<p><b>Status:</b> High Risk</p>
 
-<b>Fraud Probability:</b> {confidence:.2f}%<br>
+<p><b>Fraud Probability:</b> {confidence:.2f}%</p>
 
-<b>Recommendation:</b> Review or block this transaction before processing.
+<p><b>Recommendation:</b> Review or block this transaction before processing.</p>
 
 </div>
                 """,
@@ -607,15 +627,24 @@ if predict_button:
 
             st.markdown(
                 f"""
-<div class="result-card safe">
+<div class="result-card"
+     style="
+        border-left:4px solid #22c55e;
+        background:rgba(34,197,94,0.04);
+        border-radius:18px;
+        padding:22px;
+        margin-top:15px;
+     ">
 
-<h3>Legitimate Transaction</h3>
+<h3 style="color:#22c55e; margin-top:0;">
+    Legitimate Transaction
+</h3>
 
-<b>Status:</b> Low Risk<br>
+<p><b>Status:</b> Low Risk</p>
 
-<b>Fraud Probability:</b> {confidence:.2f}%<br>
+<p><b>Fraud Probability:</b> {confidence:.2f}%</p>
 
-<b>Recommendation:</b> Transaction appears safe to proceed.
+<p><b>Recommendation:</b> Transaction appears safe to proceed.</p>
 
 </div>
                 """,

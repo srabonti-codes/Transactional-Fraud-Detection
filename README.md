@@ -1,16 +1,34 @@
 # Transactional Fraud Detection
 
+[![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-litestream-orange?logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.14-orange?logo=tensorflow&logoColor=white)](https://www.tensorflow.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.2-orange?logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?logo=opensource&logoColor=white)](LICENSE)
+
 A complete end-to-end fraud detection project with an interactive Streamlit dashboard, trained model artifacts, and production-ready inference.
 
 ## Overview
 This repository delivers a ready-to-run fraud scoring system for transaction data. It includes dataset assets, preprocessing pipelines, model artifacts, evaluation summaries, and a Streamlit app for live inference.
 
 ## Dataset
-The dataset is based on the PaySim dataset from Kaggle. It was adapted for this project with a downsampled version included for efficient training and evaluation.
+This project uses the **PaySim** dataset from Kaggle, which simulates realistic mobile money transactions for fraud detection. The full dataset was used as the source, and a downsampled version was later created for efficient model training and evaluation during development.
 
-A live preview is available at https://transactional-fraud-detector.onrender.com.
+## Live Demo
+**Try the application:** https://transactional-fraud-detector.onrender.com
 
-## Key capabilities
+## Screenshots
+
+### Transaction Input Form
+![Transaction Input Form](images/input-form.png)
+
+### Legitimate Transaction Prediction
+![Legitimate Transaction](images/legitimate-result.png)
+
+### Fraud Detection Prediction
+![Fraud Detection](images/fraud-result.png)
+
+## Key Capabilities
 - Real-time fraud risk scoring via a Streamlit user interface
 - Support for TensorFlow/Keras and PyTorch TabNet model families
 - Consistent preprocessing through serialized artifacts
@@ -39,15 +57,26 @@ Model inference produces fraud risk score
 Displayed output with transaction risk assessment
 ```
 
-## Key results
-The table below summarizes the most important evaluation metrics for the top-performing models.
+> Recommended execution sequence for reproducibility:
+> 1. `notebooks/preprocessing_pipeline.ipynb`
+> 2. `notebooks/model_training.ipynb`
+> 3. `notebooks/result_analysis.ipynb`
+> 4. `notebooks/model_inference.ipynb`
+> 5. `app.py`
 
-| Model | ROC-AUC | Fraud F1 | False Positives | False Negatives |
-|-------|--------:|---------:|----------------:|----------------:|
-| MLP | 0.9987 | 0.9686 | 34 | 43 |
-| BiLSTM | 0.9975 | 0.9630 | 43 | 48 |
-| GRU | 0.9974 | 0.9608 | 40 | 56 |
+## Key Results
+The table below summarizes the evaluation metrics for all trained models.
 
+| Model | ROC-AUC | PR-AUC | Fraud F1 | False Positives | False Negatives |
+|-------|--------:|-------:|---------:|----------------:|----------------:|
+| **MLP (Best)** | **0.9987** | **0.9949** | **0.9686** | **34** | **43** |
+| BiLSTM | 0.9975 | 0.9944 | 0.9630 | 43 | 48 |
+| GRU | 0.9974 | 0.9938 | 0.9608 | 40 | 56 |
+| TabNet | 0.9923 | 0.9667 | 0.8970 | 90 | 157 |
+| FT-Transformer | 0.9768 | 0.8963 | 0.8043 | 338 | 176 |
+| TabTransformer | 0.9639 | 0.8347 | 0.7504 | 425 | 237 |
+
+The **MLP** model achieved the best overall performance across all evaluated models, with the highest ROC-AUC, PR-AUC, and Fraud F1-score while maintaining the lowest number of false positives and false negatives. It was therefore selected as the final deployment model.
 The MLP model is the top performer in this comparison and should be noted as the best-performing candidate for fraud detection within this project.
 
 ## Repository structure
@@ -109,4 +138,4 @@ These routes are generated dynamically based on the configured `SITE_URL`.
 - Health endpoint registration and keepalive behavior are handled internally by the application.
 
 ## License
-This repository is distributed under the MIT License. See `LICENSE` for details.
+This repository is distributed under the MIT License. See the [LICENSE](LICENSE) for details.

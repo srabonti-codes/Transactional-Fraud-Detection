@@ -1,5 +1,5 @@
 {
-  "created_at_utc": "2026-08-01T18:05:44.557439+00:00",
+  "created_at_utc": "2026-08-05T11:59:21.811307+00:00",
   "model_name": "MLP",
   "model_family": "keras",
   "artifact_path": "models\\best_model.keras",

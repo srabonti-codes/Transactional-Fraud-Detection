@@ -10,10 +10,6 @@ services:
         value: 1
       - key: SITE_URL
         value: https://transactional-fraud-detector.onrender.com
-      - key: GOOGLE_ANALYTICS_ID
-        value: ""
-      - key: GOOGLE_TAG_MANAGER_ID
-        value: ""
       - key: KEEPALIVE_ENABLED
         value: true
       - key: KEEPALIVE_URL
