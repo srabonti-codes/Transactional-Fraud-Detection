@@ -113,29 +113,5 @@ The MLP model is the top performer in this comparison and should be noted as the
    streamlit run app.py
    ```
 
-## Configuration
-The application requires the following environment variables:
-
-```env
-PORT=8501
-SITE_URL=https://your-app-url.com
-```
-
-- `PORT` defines the port used by the Streamlit server.
-- `SITE_URL` is used to generate SEO routes and for internal keepalive requests.
-
-## SEO and observability
-The application exposes:
-
-- `GET /robots.txt`
-- `GET /sitemap.xml`
-- Page metadata for description and canonical URL
-
-These routes are generated dynamically based on the configured `SITE_URL`.
-
-## Notes
-- No external analytics or tracking is enabled by default.
-- Health endpoint registration and keepalive behavior are handled internally by the application.
-
 ## License
 This repository is distributed under the MIT License. See the [LICENSE](LICENSE) for details.
