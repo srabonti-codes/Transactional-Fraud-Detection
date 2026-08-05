@@ -113,5 +113,21 @@ The MLP model is the top performer in this comparison and should be noted as the
    streamlit run app.py
    ```
 
+## Limitations
+- The model was trained and evaluated using the **PaySim** synthetic transaction dataset, which may not fully capture the complexity and diversity of real-world financial transactions.
+- The deployed application performs inference only and does not support continuous online learning or automatic model retraining.
+- Fraud predictions are generated from transaction-level features and do not incorporate customer behavioral history, device fingerprints, IP intelligence, or network-based relationships.
+- Model performance may decrease when applied to transaction distributions that differ significantly from the training data (data drift).
+- The application is intended for research, educational, and demonstration purposes rather than production financial decision-making.
+
+## Future Work
+- Evaluate the framework on real-world financial transaction datasets to improve practical applicability.
+- Implement automated model retraining and monitoring to address data drift and maintain prediction performance.
+- Incorporate graph-based and temporal deep learning models for detecting coordinated fraud patterns.
+- Integrate explainable AI (XAI) techniques such as SHAP or LIME to provide interpretable fraud predictions.
+- Develop REST API endpoints and database integration for seamless deployment into enterprise fraud detection pipelines.
+- Extend the system with real-time streaming inference using technologies such as Apache Kafka or Apache Spark Streaming.
+- Investigate advanced transformer-based architectures and ensemble learning methods to further improve fraud detection accuracy.
+
 ## License
 This repository is distributed under the MIT License. See the [LICENSE](LICENSE) for details.
